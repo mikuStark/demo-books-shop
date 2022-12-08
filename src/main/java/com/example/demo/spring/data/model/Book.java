@@ -15,6 +15,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,6 +36,14 @@ public class Book {
 
     private String title;
 
+    private PublishingHouseName publishingHouseName;
+
+    private Integer price;
+
+    private Integer pages;
+
+    private Date dateOfPublishing;
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "authors_books",
@@ -44,7 +53,11 @@ public class Book {
     @JsonIgnoreProperties("books")
     List<Author> authors = new ArrayList<>(); //одну книгу могли написать несколько авторов
 
-    public Book(String title) {
+    public Book(String title, PublishingHouseName publishingHouseName, Integer price, Integer pages, Date dateOfPublishing) {
         this.title = title;
+        this.publishingHouseName = publishingHouseName;
+        this.price = price;
+        this.pages = pages;
+        this.dateOfPublishing = dateOfPublishing;
     }
 }

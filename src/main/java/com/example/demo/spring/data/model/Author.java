@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,13 +25,15 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotBlank
     private String firstName;
 
+    @NotBlank
     private String lastName;
 
     private String middleName;
 
-    @ManyToMany(mappedBy = "authors", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "authors")
     @JsonIgnoreProperties("authors")
     List<Book> books = new ArrayList<>();
 
