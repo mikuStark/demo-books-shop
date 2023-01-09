@@ -9,5 +9,5 @@ import com.example.demo.spring.data.model.request.CreateBookRequest;
  */
 public interface AuthorsBooksService {
 
-    void createBook(CreateBookRequest request);
+    void createBookWithAuthors(CreateBookRequest request);
 }

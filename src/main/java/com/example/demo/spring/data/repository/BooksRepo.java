@@ -5,7 +5,7 @@ import com.example.demo.spring.data.model.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * mkarbainova
@@ -15,5 +15,5 @@ import java.util.List;
 @Repository
 public interface BooksRepo extends JpaRepository<Book, Long> {
 
-    Book findByTitleAndAuthorsIn(String title, List<Author> authors);
+    Book findByTitleAndAuthorsIn(String title, Set<Author> authors);
 }

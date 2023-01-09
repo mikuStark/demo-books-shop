@@ -1,16 +1,16 @@
 package com.example.demo.spring.data;
 
-import com.example.demo.spring.data.model.Author;
-import com.example.demo.spring.data.model.Book;
-import com.example.demo.spring.data.model.PublishingHouse;
-import com.example.demo.spring.data.model.PublishingHouseName;
-import com.example.demo.spring.data.repository.AuthorRepo;
-import com.example.demo.spring.data.repository.BooksRepo;
-import com.example.demo.spring.data.repository.PublishingHouseRepo;
-import org.springframework.boot.CommandLineRunner;
+//import com.example.demo.spring.data.model.Author;
+//import com.example.demo.spring.data.model.Book;
+//import com.example.demo.spring.data.model.PublishingHouse;
+//import com.example.demo.spring.data.model.PublishingHouseName;
+//import com.example.demo.spring.data.repository.AuthorRepo;
+//import com.example.demo.spring.data.repository.BooksRepo;
+//import com.example.demo.spring.data.repository.PublishingHouseRepo;
+//import org.springframework.boot.CommandLineRunner;
+//import org.springframework.context.annotation.Bean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 import java.util.Date;
 

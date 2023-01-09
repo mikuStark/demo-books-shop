@@ -14,8 +14,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * mkarbainova
@@ -32,8 +34,8 @@ public class AuthorsBooksServiceImpl implements AuthorsBooksService {
 
     @Override
     @Transactional
-    public void createBook(CreateBookRequest request) {
-        List<Author> authors = checkAndGetAuthors(request.getAuthorsNames());
+    public void createBookWithAuthors(CreateBookRequest request) {
+        Set<Author> authors = checkAndGetAuthors(request.getAuthorsNames());
         Optional<Book> optionalBook = Optional.ofNullable(
                 booksRepo.findByTitleAndAuthorsIn(request.getTitle(), authors));
         if (optionalBook.isPresent()) throw new BookExistException();
@@ -42,8 +44,8 @@ public class AuthorsBooksServiceImpl implements AuthorsBooksService {
         booksRepo.save(book);
     }
 
-    private List<Author> checkAndGetAuthors(List<CreateAuthorRequest> authors) {
-        List<Author> authorList = new ArrayList<>();
+    private Set<Author> checkAndGetAuthors(List<CreateAuthorRequest> authors) {
+        Set<Author> authorList = new HashSet<>();
         authors.forEach(author -> {
             Optional<Author> authorExist = Optional.ofNullable(
                     authorRepo.findByFirstNameAndLastName(author.getFirstName(), author.getLastName()));

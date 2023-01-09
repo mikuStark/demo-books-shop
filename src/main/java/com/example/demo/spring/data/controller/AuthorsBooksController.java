@@ -20,6 +20,6 @@ public class AuthorsBooksController {
 
     @PostMapping("/create-book")
     public void createBook(@RequestBody CreateBookRequest request) {
-        authorsBooksService.createBook(request);
+        authorsBooksService.createBookWithAuthors(request);
     }
 }

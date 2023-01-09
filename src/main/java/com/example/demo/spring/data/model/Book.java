@@ -16,7 +16,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * mkarbainova
@@ -51,7 +53,8 @@ public class Book {
             inverseJoinColumns = @JoinColumn(name = "book_id")
     )
     @JsonIgnoreProperties("books")
-    List<Author> authors = new ArrayList<>(); //одну книгу могли написать несколько авторов
+    //предположим, что часто встречается, что одну книгу могли написать несколько авторов
+    Set<Author> authors = new HashSet<>();
 
     public Book(String title, PublishingHouseName publishingHouseName, Integer price, Integer pages, Date dateOfPublishing) {
         this.title = title;

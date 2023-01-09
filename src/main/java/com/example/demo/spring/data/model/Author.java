@@ -8,7 +8,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * mkarbainova
@@ -35,7 +37,7 @@ public class Author {
 
     @ManyToMany(mappedBy = "authors")
     @JsonIgnoreProperties("authors")
-    List<Book> books = new ArrayList<>();
+    Set<Book> books = new HashSet<>();
 
     public Author(String firstName, String lastName, String middleName) {
         this.firstName = firstName;
