@@ -20,13 +20,13 @@ public class BookController {
 
     private final BookService bookService;
 
-    @GetMapping("/authors")
-    public List<Book> getAuthors() {
+    @GetMapping("/books")
+    public List<Book> getBooks() {
         return bookService.getBooks();
     }
 
-    @GetMapping("/author/{id}")
-    public Book getAuthors(@PathVariable Long id) {
+    @GetMapping("/book/{id}")
+    public Book getBook(@PathVariable Long id) {
         return bookService.getBook(id);
     }
 }
