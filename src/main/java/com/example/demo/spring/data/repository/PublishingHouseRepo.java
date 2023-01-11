@@ -1,7 +1,6 @@
 package com.example.demo.spring.data.repository;
 
 import com.example.demo.spring.data.model.PublishingHouse;
-import com.example.demo.spring.data.model.PublishingHouseName;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -10,6 +9,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author Mariya Karbainova
  */
 public interface PublishingHouseRepo extends JpaRepository<PublishingHouse, Long> {
-
-    PublishingHouse findPublishingHouseByName(PublishingHouseName name);
 }
