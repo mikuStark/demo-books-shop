@@ -17,10 +17,10 @@ jobs:
   deploy:
     needs: test
 #    continue-on-error: true
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
+#    strategy:
+#      matrix:
+#        os: [ubuntu-latest, windows-latest]
+#    runs-on: ${{ matrix.os }}
     steps:
       - name: Get access to code
         uses: actions/checkout@v3
