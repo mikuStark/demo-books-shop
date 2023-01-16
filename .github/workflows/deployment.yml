@@ -25,10 +25,10 @@ jobs:
       - name: Get access to code
         uses: actions/checkout@v3
       - name: Install java
-          uses: actions/setup-java@v3
-          with:
-            java-version: ${{ matrix.java-ver }}
-            distribution: 'adopt'
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ matrix.java-ver }}
+          distribution: 'adopt'
       - name: Build
         run: mvn clean compile
       - name: Deploy
