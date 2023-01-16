@@ -1,7 +1,7 @@
 name: Deployment
 on: push
 jobs:
-  deploy:
+  build:
 #    continue-on-error: true
 #    strategy:
 #      matrix:
@@ -23,5 +23,11 @@ jobs:
         with:
           name: my-artifact
           path: target
-      - name: Deploy
-        run: echo Deployment...
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Upload artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: my-artifact
