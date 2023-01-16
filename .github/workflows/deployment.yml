@@ -20,8 +20,8 @@ jobs:
         run: mvn clean compile
       - name: Upload artifact
         uses: actions/upload-artifact@v3
-          with:
-            name: my-artifact
-            path: build
+        with:
+          name: my-artifact
+          path: build
       - name: Deploy
         run: echo Deployment...
