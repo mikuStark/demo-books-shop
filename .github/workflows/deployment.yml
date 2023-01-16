@@ -18,7 +18,7 @@ jobs:
     needs: test
     strategy:
       matrix:
-        java-ver: [8,11]
+        java-ver: ['8','11']
         os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
