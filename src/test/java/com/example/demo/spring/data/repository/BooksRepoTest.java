@@ -24,8 +24,8 @@ public class BooksRepoTest extends ApplicationTests {
     @Test
     public void findByTitleAndAuthorsIn() {
         Author authorOne = new Author();
-        authorOne.setFirstName("First");
-        authorOne.setLastName("Last");
+        authorOne.setFirstName("First1");
+        authorOne.setLastName("Last1");
 
         Author authorTwo = new Author();
         authorTwo.setFirstName("First2");
