@@ -1,7 +1,12 @@
 name: Deployment
 on: workflow_dispatch
 jobs:
-  test:
+  build:
+#    continue-on-error: true
+#    strategy:
+#      matrix:
+#        os: [ubuntu-latest, windows-latest]
+#    runs-on: ${{ matrix.os }}
     runs-on: ubuntu-latest
     steps:
       - name: Get access to code
@@ -11,22 +16,18 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-          cache: 'maven'
-      - name: Testing
-        run: mvn test
-  deploy:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - name: Get access to code
-        uses: actions/checkout@v3
-      - name: Install java
-        uses: actions/setup-java@v3
-        with:
-          java-version: '11'
-          distribution: 'adopt'
-          cache: 'maven'
       - name: Build
         run: mvn clean compile
-      - name: Deploy
-        run: echo Deployment...
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: target
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Upload artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: my-artifact
